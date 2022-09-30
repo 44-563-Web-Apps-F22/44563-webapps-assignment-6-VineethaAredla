@@ -9,38 +9,35 @@
 <h2>Musician guess by Vineetha Aredla</h2>
 
 <form>
-    <label for="form_secretMusician">Enter the secret musician name </label>
-    <input type ="password" id="form_secretMusician" name="form_secretMusician" min=10 max=50 step=2 value="John Lennon"> <br>
+    <label for="form_secret">Enter the secret musician name </label>
+    <input type ="password" id="form_secret" name="form_secret" value="John Lennon"> <br>
 
     <label for="form_guess">Guess the musician</label>
     <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
+    
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" onclick= "checkGuess()" value="Check the guess">
 </form>
 
 
 <p id="result"></p>
-
 <script> 
-
-var correct = 0;
-var wrong = 0;
-
-function checkGuess(){
+  let correct = 0;
+  let wrong = 0;
+  function checkGuess (){
     console.log("Getting form values")
-    secert = document.getElementById("form_secretMusician").value
-    guess = document.getElementById("form_guess").value
-    if(secret==guess){
+    var a = document.getElementById("form_secret").value
+    var b = document.getElementById("form_guess").value
+    out = document.getElementById("result")
+    if(a==b){
         correct+=1;
-        window.alert("You got it right");
+        alert("You got it right");
         
-    } 
-    else {
+    }else {
         wrong+=1;
-        window.alert("Wrong Musician");
-        
+        alert("Wrong Musician");
     }
-    document.getElementById("result").innerHTML="Correct "+correct+"<br>"+"Wrong "+wrong;
+    out.innerHTML="Correct "+correct+"<br>"+"Wrong "+wrong;
 }
 </script>
 
