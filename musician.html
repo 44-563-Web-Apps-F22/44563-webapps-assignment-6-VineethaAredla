@@ -1,9 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Musicians</title>
-    </head>
- 
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+            <title>Musicians</title>
+        <style>
+          body {
+                background-color:blanchedalmond;
+               }
+          input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+         box-sizing: border-box;
+
+          }
+        </style>
+
+
 <body>
 
 <h2>Musician guess by Vineetha Aredla</h2>
@@ -14,9 +39,8 @@
 
     <label for="form_guess">Guess the musician</label>
     <input type ="text" id="form_guess" name="form_guess" autofocus> <br>
-    
-
     <input type="button" onclick= "checkGuess()" value="Check the guess">
+    
 </form>
 
 
@@ -27,6 +51,7 @@
 <script> 
   let correct = 0;
   let wrong = 0;
+  let count = 0;
   let useImage=1;
   function checkGuess (){
     console.log("Getting form values")
@@ -35,14 +60,22 @@
     out = document.getElementById("result")
     if(a==b){
         correct+=1;
+        count = 0;
         alert("You got it right");
         
     }else {
         wrong+=1;
+        count++;
+        if(count>=3){
+          gameover()
+         }
         alert("Wrong Musician");
     }
     out.innerHTML="Correct "+correct+"<br>"+"Wrong "+wrong;
 }
+function gameover(){
+        alert("Sorry,gameover")
+    }
 
   function swapImage(){
     switch(useImage){
