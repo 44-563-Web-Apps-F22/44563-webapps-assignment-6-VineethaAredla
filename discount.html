@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <title>Discount</title>
+ 
+<body>
+
+<h2>Vineetha Aredla computes discounts</h2>
+<div class="container">
+    <form>
+       
+        <label for="basevalue">Enter base amount </label>
+        <input type ="number" id="basevalue" name="basevalue" value=20>
+         <br>
+        
+       
+        <label for="discountvalue">Enter the discount percentage</label>
+        <input type ="number" id="discountvalue" name="discountvalue" value=10> 
+        <br>
+       
+        <input type="button" class="btn btn-success" onclick="discount()" value="Apply discount">
+    </form>
+    <br>
+    <p id="result">This will display base values </p><br>
+</div>
+<br>
+<div class="container">
+    <form>
+        <div class="container">
+        <label for="multiply">*</label>
+        <input type="radio" id="mutiply" name="multiply" value="times" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="divide">/</label>
+        <input type="radio" id="divide" name="divide" value="divide" onclick="chooseOp()">
+         </div>
+         <div class="container">
+        <label for="exponent">*</label>
+        <input type="radio" id="exponent" name="exponent" value="exponent" onclick="chooseOp()">
+        </div>
+        
+    </form>
+    <p id="result1">This will display operation results </p><br>
+</div>
+<br>
+    <script>
+        function discount()
+        {   
+             basevalue=document.getElementById("basevalue").value
+             value=document.getElementById("discountvalue").value
+             result="";
+            for(let i=1;i<=5;i++)
+            {
+                result+=(basevalue*i)-((basevalue*i)*value/100)
+               result+=" "
+               
+            }
+            document.getElementById("result").innerHTML="Discounted amounts for base "+basevalue+" are "+result
+        
+        }
+        function chooseOp()
+        {
+            base=document.getElementById("basevalue").value
+            value1=document.getElementById("discountvalue").value
+            mul=document.getElementById("mutiply").checked
+            div=document.getElementById("divide").checked
+            exp=document.getElementById("exponent").checked
+            if(mul){
+                  document.getElementById("result1").innerHTML="Amount*discount = "+base*value1
+            }
+            else if(div){
+                
+                  document.getElementById("result1").innerHTML="Amount/discount = "+base/value1
+            }
+            else if(exp){
+                  document.getElementById("result1").innerHTML="Amount**discount = "+base**value1
+            }
+            
+        }
+        
+     </script>
+            
+    
+</body>
+</html>
