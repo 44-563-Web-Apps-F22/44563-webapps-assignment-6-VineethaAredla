@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+    <title>Vacation page</title>
+    <style>
+    body {
+      background-color:rgb(251, 255, 0);
+     }
+    input[type=text], select {
+    width: 100%;
+    padding: 10px 30px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Vineetha Aredla selects a vacation   </h1>
+    <div class="container">
+        <form>
+            <input type="checkbox" id="Air" name="topping1" value="True" checked>
+            <label for="Air">Travel by Air</label></br>
+
+            <input type="checkbox" id="Domestic" name="topping2" value="True">
+            <label for="Domestic">Domestic</label></br>
+
+            <input type="checkbox" id="Resort" name="topping3" value="False" checked>
+            <label for="Resort">Resort</label></br>
+
+            <input type="button" onclick="selectVacation()" value="Select a vacation">
+        </form>
+        <p id="result"></p>
+        <br>
+    </div>
+    <br>
+
+    <div class="container">
+        <form>
+            <input type="text" id="CityName" value="city" name="city">
+            <label for="CityName">Enter a city</label></br>
+            <input type="text" id="Price" value=" " name="Price">
+            <label for="Price">Enter price</label></br>
+            <input type="button" onclick="updateVacation()" value="Update the vacation">
+        </form>
+        <p id="result1"> </p>
+        <br>
+    </div>
+    <script>
+        function selectVacation() {
+            var my_vacation = {}
+            if (document.getElementById("Air").checked) {
+                my_vacation.Air = true;
+
+            }
+            else {
+                my_vacation.Air = false;
+            }
+            result.innerHTML = result.innerHTML + "\n" + "Air: " + my_vacation.Air
+            if (document.getElementById("Domestic").checked) {
+                my_vacation.Domestic = true;
+
+            }
+            else {
+                my_vacation.Domestic = false;
+            }
+            result.innerHTML = result.innerHTML + "\n" + "Domestic: " + my_vacation.Domestic
+            if (document.getElementById("Resort").checked) {
+                my_vacation.Resort = true;
+
+            }
+            else {
+                my_vacation.Resort = false;
+            }
+            result.innerHTML = result.innerHTML + "\n" + "Resort: " + my_vacation.Resort
+
+
+        }
+        function updateVacation() {
+            var my_vacation = {}
+            city1 = document.getElementById("CityName").value
+            price1 = document.getElementById("Price").value
+            my_vacation["city"] = city1
+            my_vacation["price"] = price1
+            document.getElementById("result1").innerHTML += "City: " + my_vacation["city"] + "\n"
+                + "Price:" + my_vacation["price"]
+        }
+    </script>
+</body>
+
+</html>
